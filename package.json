@@ -1,0 +1,14 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "express test",
+  "main": "src",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "author": "JuanIVF",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

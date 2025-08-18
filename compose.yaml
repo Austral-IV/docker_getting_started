@@ -1,0 +1,18 @@
+
+
+services:
+  backend:
+    build: . # Dockerfile is in the current directory
+    ports:
+      - "3000:3000"
+  db:
+    image: postgres:latest # we are not using an image for this cont. We'll use a base iamge of the db we want
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes: # let's db know about the volume
+      - db_data:/var/lib/postgresql/data
+
+volumes: # tells docker to create a volume named db_data
+  db_data:
