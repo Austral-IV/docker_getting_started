@@ -8,7 +8,21 @@ Docker images and containers make applications more shareable; able to work on a
 
 To use Docker, you need one `Dockerfile` per image. This file includes instructions for building and running the application. These are the contents of our `Dockerfile`:
 
-The server relies on noe, so we import it:
+    FROM node:22 
+    WORKDIR /app
+
+    COPY package*.json ./
+
+    RUN npm install
+
+    COPY . .
+
+    ENV PORT=3000
+    EXPOSE 3000
+
+    CMD ["npm", "run" ,"start"]
+
+The server relies on Node, so we import it:
 
     FROM node:22 
 
@@ -71,10 +85,10 @@ Docker compose allows for coordinating separate containers. To acomplish this, `
         volumes: # let's db know about the volume
         - db_data:/var/lib/postgresql/data
 
-    volumes: # tells docker to create a volume named db_data
+    volumes:
     db_data:
 
-Let's walk throgh this:
+But what does it do?
 
     services:
       backend:
