@@ -65,10 +65,6 @@ Then run the container, forwarding port 3000, since the container requires it:
 
 ## Compose
 
-how to run
-docker compose up
-docker compose down
-
 Docker compose allows for coordinating separate containers. To acomplish this, `compose.yaml` is required:
 
     services:
@@ -126,6 +122,12 @@ Having the required files, now head to the working directory and run
 To bring it down:
 
     docker compose down
+
+A better way to deploy is by running 
+
+    docker compose up --build
+
+compose, by default, does not build the container. With this command, we ammend that while only rebuilding when changes are detected, otherwise using the cahed layers.
 
 
 ## Other notes:
